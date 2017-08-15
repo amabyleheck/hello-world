@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.VideoBox = new System.Windows.Forms.PictureBox();
             this.OnOffButton = new System.Windows.Forms.Button();
             this.WebcamsBox = new System.Windows.Forms.ComboBox();
-            this.VideoBox = new System.Windows.Forms.PictureBox();
             this.CaptureButton = new System.Windows.Forms.Button();
             this.PicName = new System.Windows.Forms.TextBox();
+            this.GrayscaleButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VideoBox)).BeginInit();
             this.SuspendLayout();
@@ -48,9 +49,18 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // VideoBox
+            // 
+            this.VideoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.VideoBox.Location = new System.Drawing.Point(6, 19);
+            this.VideoBox.Name = "VideoBox";
+            this.VideoBox.Size = new System.Drawing.Size(728, 425);
+            this.VideoBox.TabIndex = 0;
+            this.VideoBox.TabStop = false;
+            // 
             // OnOffButton
             // 
-            this.OnOffButton.Location = new System.Drawing.Point(284, 500);
+            this.OnOffButton.Location = new System.Drawing.Point(284, 480);
             this.OnOffButton.Name = "OnOffButton";
             this.OnOffButton.Size = new System.Drawing.Size(100, 23);
             this.OnOffButton.TabIndex = 1;
@@ -61,23 +71,14 @@
             // WebcamsBox
             // 
             this.WebcamsBox.FormattingEnabled = true;
-            this.WebcamsBox.Location = new System.Drawing.Point(26, 502);
+            this.WebcamsBox.Location = new System.Drawing.Point(26, 480);
             this.WebcamsBox.Name = "WebcamsBox";
             this.WebcamsBox.Size = new System.Drawing.Size(233, 21);
             this.WebcamsBox.TabIndex = 2;
             // 
-            // VideoBox
-            // 
-            this.VideoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.VideoBox.Location = new System.Drawing.Point(6, 19);
-            this.VideoBox.Name = "VideoBox";
-            this.VideoBox.Size = new System.Drawing.Size(728, 425);
-            this.VideoBox.TabIndex = 0;
-            this.VideoBox.TabStop = false;
-            // 
             // CaptureButton
             // 
-            this.CaptureButton.Location = new System.Drawing.Point(654, 500);
+            this.CaptureButton.Location = new System.Drawing.Point(654, 480);
             this.CaptureButton.Name = "CaptureButton";
             this.CaptureButton.Size = new System.Drawing.Size(100, 23);
             this.CaptureButton.TabIndex = 3;
@@ -87,17 +88,28 @@
             // 
             // PicName
             // 
-            this.PicName.Location = new System.Drawing.Point(420, 502);
+            this.PicName.Location = new System.Drawing.Point(420, 480);
             this.PicName.Name = "PicName";
             this.PicName.Size = new System.Drawing.Size(215, 20);
             this.PicName.TabIndex = 4;
             this.PicName.Text = "C:\\Users\\RuggedOne\\Desktop\\";
+            // 
+            // GrayscaleButton
+            // 
+            this.GrayscaleButton.Location = new System.Drawing.Point(26, 515);
+            this.GrayscaleButton.Name = "GrayscaleButton";
+            this.GrayscaleButton.Size = new System.Drawing.Size(100, 23);
+            this.GrayscaleButton.TabIndex = 5;
+            this.GrayscaleButton.Text = "Grayscale";
+            this.GrayscaleButton.UseVisualStyleBackColor = true;
+            this.GrayscaleButton.Click += new System.EventHandler(this.GrayscaleButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.GrayscaleButton);
             this.Controls.Add(this.PicName);
             this.Controls.Add(this.CaptureButton);
             this.Controls.Add(this.WebcamsBox);
@@ -122,6 +134,7 @@
         private System.Windows.Forms.PictureBox VideoBox;
         private System.Windows.Forms.Button CaptureButton;
         private System.Windows.Forms.TextBox PicName;
+        private System.Windows.Forms.Button GrayscaleButton;
     }
 }
 
