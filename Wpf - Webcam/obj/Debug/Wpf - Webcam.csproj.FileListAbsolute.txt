@@ -1,0 +1,17 @@
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\bin\Debug\Wpf - Webcam.exe.config
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\bin\Debug\Wpf - Webcam.exe
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\bin\Debug\Wpf - Webcam.pdb
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\bin\Debug\ShaderEffectLibrary.dll
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\bin\Debug\WPFMediaKit.dll
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\obj\Debug\Wpf - Webcam.csprojResolveAssemblyReference.cache
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\obj\Debug\MainWindow.g.cs
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\obj\Debug\App.g.cs
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\obj\Debug\Wpf - Webcam_MarkupCompile.cache
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\obj\Debug\Wpf - Webcam_MarkupCompile.lref
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\obj\Debug\MainWindow.baml
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\obj\Debug\Wpf - Webcam.g.resources
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\obj\Debug\Wpf___Webcam.Properties.Resources.resources
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\obj\Debug\Wpf - Webcam.csproj.GenerateResource.Cache
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\obj\Debug\Wpf - Webcam.exe
+C:\Users\RuggedOne\Documents\Wpf - Webcam\Wpf - Webcam\obj\Debug\Wpf - Webcam.pdb
