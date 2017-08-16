@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
+using System.Security.Cryptography;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using AForge.Imaging.Filters;
-using System.Drawing.Imaging;
 using System.IO;
+
 
 namespace WindowsFormsApp1
 {
@@ -25,10 +27,13 @@ namespace WindowsFormsApp1
         private FilterInfoCollection Devices;
         private VideoCaptureDevice ImageDevice;
 
-        // Crieando o filtro grayscale (BT709)
+        // Criando o filtro grayscale (BT709)
         Grayscale filter = new Grayscale(0.2125, 0.7154, 0.0721);
 
         bool gray = false;
+        //bool compareMode = false;
+
+        int maxWidth = 400, maxHeight = 200;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -58,6 +63,7 @@ namespace WindowsFormsApp1
                 VideoBox.Image = null;
                 VideoBox.Invalidate();
                 gray = false;
+                RefImage.Image = null;
             }
             //Do contrário, é ligado
             else
@@ -75,13 +81,38 @@ namespace WindowsFormsApp1
             if (gray)
             {
                 Bitmap grayImage = filter.Apply(picture);
-                VideoBox.Image = grayImage;
+                VideoBox.Image = ScaleImage(grayImage, maxWidth, maxHeight);
             }
             else
             {
-                VideoBox.Image = picture;  
+                VideoBox.Image = ScaleImage(picture, maxWidth, maxHeight);  
             }
                   
+        }
+
+        private void ImageDevice_Comparing(object sender, NewFrameEventArgs eventArgs)
+        {
+            
+            Bitmap grayImage = ScaleImage(filter.Apply((Bitmap)eventArgs.Frame.Clone()), maxWidth, maxHeight);
+            Bitmap reference = new Bitmap(ComparePic.Text);
+            reference = ScaleImage(filter.Apply(reference), maxWidth, maxHeight);
+            Bitmap picToShow = new Bitmap(reference.Width, reference.Height);
+            Color pixelColorRef, pixelColor, newColor;
+
+
+            for (int x = 0; x < reference.Width; x++)
+            {
+                for (int y = 0; y < reference.Height; y++)
+                {
+                    pixelColorRef = reference.GetPixel(x, y);
+                    pixelColor = grayImage.GetPixel(x, y);
+                    newColor = Color.FromArgb(Math.Abs(pixelColorRef.R - pixelColor.R), 
+                        Math.Abs(pixelColorRef.G - pixelColor.G), Math.Abs(pixelColorRef.B - pixelColor.B));
+
+                    picToShow.SetPixel(x, y, newColor);
+                }
+            }
+            VideoBox.Image = picToShow;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -95,11 +126,47 @@ namespace WindowsFormsApp1
         private void CaptureButton_Click(object sender, EventArgs e)
         {
             VideoBox.Image.Save(PicName.Text, ImageFormat.Bmp);
+            ComparePic.Text = PicName.Text;
         }
 
         private void GrayscaleButton_Click(object sender, EventArgs e)
         {
             gray = !gray;
+        }
+
+        private void CompButton_Click(object sender, EventArgs e)
+        {
+
+            if (ImageDevice.IsRunning)
+            {
+                
+                RefImage.Image = ScaleImage(new Bitmap(ComparePic.Text), maxWidth, maxHeight);
+                ImageDevice.Stop();
+                VideoBox.Image = null;
+                ImageDevice = new VideoCaptureDevice(Devices[WebcamsBox.SelectedIndex].MonikerString);
+                ImageDevice.NewFrame += new NewFrameEventHandler(ImageDevice_Comparing);
+                ImageDevice.Start();
+
+            }
+           
+            
+            
+            
+        }
+        static public Bitmap ScaleImage(Image image, int maxWidth, int maxHeight)
+        {
+            var ratioX = (double)maxWidth / image.Width;
+            var ratioY = (double)maxHeight / image.Height;
+            var ratio = Math.Min(ratioX, ratioY);
+
+            var newWidth = (int)(image.Width * ratio);
+            var newHeight = (int)(image.Height * ratio);
+
+            var newImage = new Bitmap(newWidth, newHeight);
+            Graphics.FromImage(newImage).DrawImage(image, 0, 0, newWidth, newHeight);
+            Bitmap bmp = new Bitmap(newImage);
+
+            return bmp;
         }
     }
 }
