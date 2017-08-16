@@ -35,6 +35,9 @@
             this.CaptureButton = new System.Windows.Forms.Button();
             this.PicName = new System.Windows.Forms.TextBox();
             this.GrayscaleButton = new System.Windows.Forms.Button();
+            this.CompButton = new System.Windows.Forms.Button();
+            this.ComparePic = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VideoBox)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +57,7 @@
             this.VideoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.VideoBox.Location = new System.Drawing.Point(6, 19);
             this.VideoBox.Name = "VideoBox";
-            this.VideoBox.Size = new System.Drawing.Size(728, 425);
+            this.VideoBox.Size = new System.Drawing.Size(400, 250);
             this.VideoBox.TabIndex = 0;
             this.VideoBox.TabStop = false;
             // 
@@ -104,11 +107,40 @@
             this.GrayscaleButton.UseVisualStyleBackColor = true;
             this.GrayscaleButton.Click += new System.EventHandler(this.GrayscaleButton_Click);
             // 
+            // CompButton
+            // 
+            this.CompButton.Location = new System.Drawing.Point(654, 515);
+            this.CompButton.Name = "CompButton";
+            this.CompButton.Size = new System.Drawing.Size(100, 23);
+            this.CompButton.TabIndex = 6;
+            this.CompButton.Text = "Compare";
+            this.CompButton.UseVisualStyleBackColor = true;
+            this.CompButton.Click += new System.EventHandler(this.CompButton_Click);
+            // 
+            // ComparePic
+            // 
+            this.ComparePic.Location = new System.Drawing.Point(420, 515);
+            this.ComparePic.Name = "ComparePic";
+            this.ComparePic.Size = new System.Drawing.Size(215, 20);
+            this.ComparePic.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(323, 515);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Reference image:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ComparePic);
+            this.Controls.Add(this.CompButton);
             this.Controls.Add(this.GrayscaleButton);
             this.Controls.Add(this.PicName);
             this.Controls.Add(this.CaptureButton);
@@ -135,6 +167,9 @@
         private System.Windows.Forms.Button CaptureButton;
         private System.Windows.Forms.TextBox PicName;
         private System.Windows.Forms.Button GrayscaleButton;
+        private System.Windows.Forms.Button CompButton;
+        private System.Windows.Forms.TextBox ComparePic;
+        private System.Windows.Forms.Label label1;
     }
 }
 
